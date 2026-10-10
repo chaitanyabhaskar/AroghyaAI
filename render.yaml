@@ -1,0 +1,33 @@
+# GenAI Generated code - Start
+# Render Blueprint. Free (Hobby) plan: 750 instance-hours/month per workspace,
+# spins down after 15 min idle with a 30-60s cold start, 5 GB bandwidth/month.
+#
+# After deploy, set these two secrets in the Render dashboard:
+#   LLM_API_KEY  - your model provider key
+#   ACCESS_CODE  - a shared passcode, otherwise the URL is open to the world
+services:
+  - type: web
+    name: arogyaai
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /healthz
+    envVars:
+      - key: LLM_API_KEY
+        sync: false
+      - key: ACCESS_CODE
+        sync: false
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_TEXT_MODEL
+        value: qwen/qwen3.6-27b
+      - key: LLM_VISION_MODEL
+        value: qwen/qwen3.6-27b
+      - key: RATE_LIMIT_PER_MIN
+        value: "20"
+      # Free instances have no persistent disk, so keep SQLite in /tmp.
+      # Chat history resets on every spin-down. Attach a disk on a paid plan
+      # and point this at the mount path for durable history.
+      - key: AROGYA_DB
+        value: /tmp/arogya.db
+# GenAI Generated code - End

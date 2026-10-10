@@ -1,0 +1,15 @@
+# GenAI Generated code - Start
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.pyc
+.env
+data/
+*.db
+*.db-wal
+*.db-shm
+README.md
+run.ps1
+# GenAI Generated code - End

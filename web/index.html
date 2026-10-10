@@ -1,0 +1,148 @@
+<!doctype html>
+<!-- GenAI Generated code - Start -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f9f6e" />
+  <meta name="description" content="ArogyaAI - home remedies, nutrition and preventive health guidance in Indian languages." />
+  <title>ArogyaAI</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f9f6e'/%3E%3Cpath d='M16 24c0-6 3-9 8-9 0 6-3 9-8 9zm0 0c0-6-3-9-8-9 0 6 3 9 8 9z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M12 21c0-7 3.6-11 9-11 0 7-3.6 11-9 11Zm0 0c0-7-3.6-11-9-11 0 7 3.6 11 9 11Z" fill="currentColor"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 19v3"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 17l5-4 3.5 3 3-2.5L20 18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="11" r="2.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h3.5l1.8 4.3-2.2 1.6a12 12 0 0 0 5.9 5.9l1.6-2.2L20 16.5V20a1.8 1.8 0 0 1-2 1.8A16.8 16.8 0 0 1 3.2 7 1.8 1.8 0 0 1 5 5Z"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l4 4V6L7 10Z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M18.5 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h3.5A2.5 2.5 0 0 1 20 6.5v11A2.5 2.5 0 0 1 17.5 20H14"/><path d="M10 8l-4 4 4 4"/><path d="M6 12h9"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-hospital" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V7l8-4 8 4v14"/><path d="M12 9v6M9 12h6"/></symbol>
+  </svg>
+
+  <div class="app">
+    <!-- ------------------------------ sidebar ------------------------------ -->
+    <aside class="sidebar" id="sidebar" aria-label="ArogyaAI navigation">
+      <div class="brand">
+        <span class="brand-mark"><svg class="ico"><use href="#i-leaf"/></svg></span>
+        <span class="brand-name">ArogyaAI</span>
+        <button class="icon-btn" id="newChatBtn" type="button" title="New chat" aria-label="New chat">
+          <svg class="ico"><use href="#i-edit"/></svg>
+        </button>
+      </div>
+
+      <section class="side-block">
+        <h2 class="side-title" data-i18n="languages">Indian Languages</h2>
+        <div class="lang-grid" id="langGrid" role="group" aria-label="Choose language"></div>
+      </section>
+
+      <section class="side-block">
+        <h2 class="side-title" data-i18n="escalation">Medical Escalation</h2>
+        <button class="escalate-card" id="escalateBtn" type="button">
+          <span class="escalate-head">
+            <svg class="ico"><use href="#i-hospital"/></svg>
+            <span data-i18n="escalateTitle">Remedies didn't help?</span>
+          </span>
+          <span class="escalate-sub" data-i18n="escalateSub">Find Ayurvedic, Homeopathy or General Hospitals via GPS</span>
+        </button>
+      </section>
+
+      <section class="side-block">
+        <h2 class="side-title" data-i18n="concerns">Common Health Concerns</h2>
+        <nav class="concern-list" id="concernList"></nav>
+      </section>
+
+      <section class="side-block">
+        <button class="helpline-card" id="helplineBtn" type="button">
+          <span class="helpline-head">
+            <svg class="ico"><use href="#i-phone"/></svg>
+            <span data-i18n="helplines">India Emergency Helplines</span>
+          </span>
+          <span class="helpline-sub" data-i18n="helplinesSub">112 · 108 · 1075 · 14416</span>
+        </button>
+      </section>
+
+      <div class="side-spacer"></div>
+
+      <div class="user-chip">
+        <span class="avatar" id="userAvatar">A</span>
+        <span class="user-meta">
+          <strong id="userName" data-i18n="guest">Guest</strong>
+          <small id="userSub" data-i18n="guestSub">Tap to set your name</small>
+        </span>
+        <button class="icon-btn" id="profileBtn" type="button" title="Profile" aria-label="Profile">
+          <svg class="ico"><use href="#i-logout"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ------------------------------- main -------------------------------- -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn only-mobile" id="menuBtn" type="button" aria-label="Menu">
+          <svg class="ico"><use href="#i-menu"/></svg>
+        </button>
+        <div class="topbar-title">
+          <strong>ArogyaAI</strong>
+          <span class="model-label" id="modelLabel">loading model…</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="pill" id="voiceToggle" type="button" aria-pressed="false">
+            <span class="dot"></span>
+            <svg class="ico"><use href="#i-speaker"/></svg>
+            <span data-i18n="voiceAgent">Voice Agent</span>
+          </button>
+          <button class="pill pill-accent" id="hospitalsBtn" type="button">
+            <svg class="ico"><use href="#i-pin"/></svg>
+            <span data-i18n="nearbyHospitals">Nearby Hospitals</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="banner" id="configBanner" hidden></div>
+
+      <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+
+      <div class="composer-wrap">
+        <div class="attach-preview" id="attachPreview" hidden>
+          <img id="attachThumb" alt="Attached photo preview" />
+          <span id="attachName"></span>
+          <button class="icon-btn" id="attachClear" type="button" aria-label="Remove photo">
+            <svg class="ico"><use href="#i-close"/></svg>
+          </button>
+        </div>
+
+        <form class="composer" id="composer" autocomplete="off">
+          <button class="icon-btn composer-icon" id="imageBtn" type="button" title="Upload a photo" aria-label="Upload a photo">
+            <svg class="ico"><use href="#i-image"/></svg>
+          </button>
+          <input type="file" id="imageInput" accept="image/png,image/jpeg,image/webp" hidden />
+          <textarea id="input" rows="1" maxlength="4000" data-i18n-ph="placeholder"
+                    placeholder="Describe your health concern…" aria-label="Message"></textarea>
+          <button class="icon-btn composer-icon" id="micBtn" type="button" title="Speak" aria-label="Speak">
+            <svg class="ico"><use href="#i-mic"/></svg>
+          </button>
+          <button class="send-btn" id="sendBtn" type="submit" title="Send" aria-label="Send">
+            <svg class="ico"><use href="#i-send"/></svg>
+          </button>
+        </form>
+        <p class="disclaimer" data-i18n="disclaimer">
+          ArogyaAI provides general preventive guidance. Consult a qualified doctor for medical conditions.
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div id="modalRoot"></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
+<!-- GenAI Generated code - End -->

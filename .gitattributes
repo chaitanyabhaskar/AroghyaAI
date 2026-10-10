@@ -1,0 +1,13 @@
+# GenAI Generated code - Start
+# Keep LF in the repo and on Linux checkouts (Render/Docker build context).
+* text=auto eol=lf
+
+# PowerShell is happier with CRLF on Windows.
+*.ps1 text eol=crlf
+
+# Never touch binaries.
+*.png binary
+*.jpg binary
+*.webp binary
+*.db binary
+# GenAI Generated code - End

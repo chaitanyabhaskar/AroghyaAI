@@ -1,0 +1,13 @@
+# GenAI Generated code - Start
+# ArogyaAI runtime dependencies - exact pins for reproducible builds.
+# Licenses: fastapi(MIT) uvicorn(BSD-3) httpx(BSD-3) python-dotenv(BSD-3)
+#           pydantic(MIT) truststore(MIT)
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+httpx==0.28.1
+python-dotenv==1.0.1
+pydantic==2.10.5
+# Lets Python validate TLS against the OS trust store, so corporate HTTPS
+# inspection proxies (Zscaler etc.) do not break outbound model calls.
+truststore==0.10.4
+# GenAI Generated code - End
