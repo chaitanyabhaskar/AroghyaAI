@@ -56,11 +56,25 @@ LLM_VISION_MODEL=qwen/qwen3.6-27b
 Tested shapes: Groq, the official Llama API, OpenRouter, OpenAI, and a local Ollama
 server (`LLM_BASE_URL=http://localhost:11434/v1`, `LLM_API_KEY=ollama`).
 
-**Model IDs go stale.** Groq retired the Llama vision models on free and developer
-tiers in July 2026 and pointed users at a vision-capable Qwen model instead, which is
-why nothing is hardcoded. Check your provider's current model list and set
-`LLM_TEXT_MODEL` / `LLM_VISION_MODEL` accordingly. A 404 from the provider surfaces in
-the chat as a "Model not found" message naming both env vars.
+**Model IDs go stale, so the app diagnoses itself.** Providers retire models on a
+few weeks' notice - Groq shut down `llama-3.3-70b-versatile` and
+`llama-3.1-8b-instant` for free and developer tiers in August 2026. When the
+configured model does not exist, the error in the chat bubble lists every model your
+key *can* use, so there is nothing to guess:
+
+```
+GET /api/models
+{
+  "configured_text_model": "openai/gpt-oss-120b",
+  "text_model_valid": true,
+  "count": 12,
+  "available": ["openai/gpt-oss-120b", "openai/gpt-oss-20b", ...]
+}
+```
+
+Pick one from that list for `LLM_TEXT_MODEL`. For `LLM_VISION_MODEL` pick a
+**vision-capable** one - text-only models, `gpt-oss` included, reject images, so the
+skin/wound photo feature needs a multimodal model.
 
 ## Access Gate
 
@@ -174,6 +188,7 @@ web/
 | GET | `/api/hospitals` | `lat`, `lon`, `radius_km`, `category`, `limit` |
 | GET | `/api/helplines` | static helpline list |
 | GET | `/api/config` | model label, languages, limits (no secrets) |
+| GET | `/api/models` | models your key can use, and whether the configured ones are valid |
 | GET/DELETE | `/api/history/{session_id}` | replay or delete a conversation |
 | GET | `/healthz` | liveness + whether a key is configured |
 

@@ -39,7 +39,9 @@ class Settings:
         self.base_url: str = os.getenv(
             "LLM_BASE_URL", "https://api.groq.com/openai/v1"
         ).rstrip("/")
-        self.text_model: str = os.getenv("LLM_TEXT_MODEL", "qwen/qwen3.6-27b")
+        # Provider model IDs get retired regularly. If this one 404s, hit
+        # /api/models to see what the key can actually use.
+        self.text_model: str = os.getenv("LLM_TEXT_MODEL", "openai/gpt-oss-120b")
         self.vision_model: str = os.getenv("LLM_VISION_MODEL", self.text_model)
         self.model_label: str = os.getenv("MODEL_LABEL", "")
         self.temperature: float = _float("LLM_TEMPERATURE", 0.3)

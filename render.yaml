@@ -19,10 +19,13 @@ services:
         sync: false
       - key: LLM_BASE_URL
         value: https://api.groq.com/openai/v1
+      # If chat reports "Model not found", the error lists valid IDs for your
+      # key (or call GET /api/models). Update these in the dashboard - no
+      # redeploy needed, just restart the service.
       - key: LLM_TEXT_MODEL
-        value: qwen/qwen3.6-27b
+        value: openai/gpt-oss-120b
       - key: LLM_VISION_MODEL
-        value: qwen/qwen3.6-27b
+        value: openai/gpt-oss-120b
       - key: RATE_LIMIT_PER_MIN
         value: "20"
       # Free instances have no persistent disk, so keep SQLite in /tmp.

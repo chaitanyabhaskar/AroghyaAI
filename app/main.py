@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 from . import store
 from .config import WEB_DIR, get_settings
 from .hospitals import CATEGORIES, HospitalLookupError, find_nearby
-from .llm import LLMError, build_user_content, stream_chat
+from .llm import LLMError, build_user_content, list_models, stream_chat
 from .prompts import LANGUAGES, build_system_prompt, normalise_language
 from .safety import HELPLINES, detect_emergency, detect_escalation
 
@@ -182,6 +182,28 @@ async def api_config() -> dict[str, Any]:
 @app.get("/api/helplines")
 async def api_helplines() -> dict[str, Any]:
     return {"helplines": HELPLINES}
+
+
+@app.get("/api/models")
+async def api_models(request: Request) -> dict[str, Any]:
+    """Diagnostic: which models this API key can actually use.
+
+    Model IDs change as providers retire them, so this removes the guesswork
+    when /api/chat returns "Model not found".
+    """
+    _require_access(request)
+    try:
+        available = await list_models(settings)
+    except LLMError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    return {
+        "configured_text_model": settings.text_model,
+        "configured_vision_model": settings.vision_model,
+        "text_model_valid": settings.text_model in available,
+        "vision_model_valid": settings.vision_model in available,
+        "count": len(available),
+        "available": available,
+    }
 
 
 @app.post("/api/session")
